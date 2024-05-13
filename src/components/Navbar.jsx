@@ -10,7 +10,13 @@ const Navbar = () => {
             <Link to="/">Event Booking App</Link>
           </span>
         </div>
-        <div>
+        <div className="flex gap-5">
+          <Link
+            to="/get"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded max-sm:hidden"
+          >
+            Get Events
+          </Link>
           <Link
             to="/book"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
