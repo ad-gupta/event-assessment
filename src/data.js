@@ -1,0 +1,1 @@
+export const api = "https://event-server-v8ay.onrender.com"
