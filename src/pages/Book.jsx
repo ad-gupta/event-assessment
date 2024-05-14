@@ -6,15 +6,17 @@ import { RxAvatar } from "react-icons/rx";
 import { CiStickyNote } from "react-icons/ci";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../data";
+import { IoClose } from "react-icons/io5";
+import { TiTick } from "react-icons/ti";
 
 const Book = () => {
   const [eventName, setEventName] = useState("");
   const [dateTime, setDateTime] = useState("");
   const [selectedVendor, setSelectedVendor] = useState(null); // Change to null
   const [note, setNote] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleEventNameChange = (e) => {
     setEventName(e.target.value);
@@ -41,7 +43,7 @@ const Book = () => {
         note: note,
         date: dateTime,
       });
-      navigate('/get')
+      navigate("/get");
       toast.success("Your request has been recorded");
     } catch (error) {
       console.error("Error occurred while submitting:", error);
@@ -56,67 +58,98 @@ const Book = () => {
   ];
 
   return (
-    <div className="container w-[50%] mx-auto bg-gradient-to-r from-pink-200 via-green-300 to-indigo-300 mt-5 rounded-md p-10 min-h-[90vh] max-sm:w-full max-sm:mt-0">
-      <h1 className="text-3xl mb-4 text-blue-800 text-center font-bold">
-        Event Details Modal
-      </h1>
-      <div className="mb-4 m-5">
+    <div className="container w-[50%] mx-auto bg-slate-50 mt-5 rounded-md p-10 min-h-[90vh] max-sm:w-full max-sm:mt-0">
+      <div className="flex items-center justify-between">
+        <div className="">
+          <button
+            onClick={handleSubmit}
+            className="text-rose-500 bg-white rounded-full border-red-400 border-2"
+          >
+            <TiTick />
+          </button>
+        </div>
+        <div className=" text-rose-500 text-xl">
+          <Link to="/">
+            <IoClose />
+          </Link>
+        </div>
+      </div>
+      <div className="mb-4 m-5 mt-10">
         <input
           type="text"
           placeholder="Event Name"
           value={eventName}
           onChange={handleEventNameChange}
-          className="border border-gray-400 p-2 rounded-md w-full my-3 h-16"
+          className="border pl-5 border-gray-300 p-3 rounded-3xl w-full mb-4 text-rose-600 font-bold text-xl"
         />
         <input
           type="datetime-local"
           value={dateTime}
           onChange={handleDateTimeChange}
-          className="border border-gray-400 p-2 rounded-md w-full my-3 h-14"
+          className="border pl-5 text-gray-600 border-gray-300 p-3 font-bold rounded-3xl w-full mb-4"
         />
-        <div className="flex items-center justify-between bg-green-100 px-2 rounded-lg">
-          <div className="flex items-center justify-center gap-3 max-sm:gap-0">
+        <div className="flex items-center justify-evenly">
+          <div className="flex items-center justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
-            <RxAvatar color="red" size={24} />
-            <p className="text-xl max-sm:text-sm"> assign:- </p>
+            <RxAvatar size={20} style={{ color: "tomato" }} />
+            <p className="text-lg max-sm:text-sm italic text-gray-700">
+              {" "}
+              Assign_to:{" "}
+            </p>
           </div>
           <Select
+            styles={{
+              control: (baseStyles, state) => ({
+                ...baseStyles,
+                borderRadius: "40px",
+                marginBottom: "10px",
+                padding: "5px",
+              }),
+            }}
             options={options}
             value={selectedVendor}
+            className="w-[60%] font-semibold"
             onChange={handleVendorChange}
-            className="w-[80%] py-2 border-none"
             getOptionLabel={(option) => (
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center text-red p-2">
                 <img
                   src={option.image}
                   alt={option.label}
                   className="h-6 w-6 mr-2 rounded-lg"
                 />
-                {option.label}
+                <p
+                  style={{ textShadow: "0.5px 1px green" }}
+                  className="font-semibold mr-2 text-teal-500 text-xs"
+                >
+                  {option.label}
+                </p>
               </div>
             )}
           />
         </div>
-        <div className="flex items-center justify-between bg-green-100 px-2 rounded-lg mt-3">
-          <div className="flex items-center justify-center gap-3 max-sm:gap-0">
-            <CiStickyNote color="red" size={24} />
-            <p className="text-xl max-sm:text-sm"> Note:- </p>
+        <div className="flex items-center justify-evenly">
+          <div className="flex items-center justify-center gap-2 max-sm:gap-0">
+            {/* Replace RxAvatar with your actual avatar component */}
+            <CiStickyNote style={{ color: "tomato" }} size={20} />
+            <p className="text-lg max-sm:text-sm italic text-gray-700">
+              {" "}
+              Note:{" "}
+            </p>
           </div>
           <textarea
             placeholder="Note"
             value={note}
             onChange={handleNoteChange}
-            className="border ml-2 my-3 border-gray-400 p-2 rounded-md w-[80%] mb-2"
+            className="border border-gray-300 pt-3 p-3 pl-5 rounded-3xl w-[60%] mb-4"
           />
         </div>
-
-        <button
+      </div>
+      <button
           onClick={handleSubmit}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md w-full mt-10"
+          className="bg-rose-400 text-white py-2 px-4 rounded-3xl text-lg font-sans w-full mt-10"
         >
           Submit
         </button>
-      </div>
     </div>
   );
 };
