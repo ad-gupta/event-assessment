@@ -56,7 +56,7 @@ const Book = () => {
   ];
 
   return (
-    <div className="container w-[50%] mx-auto bg-gradient-to-r from-pink-200 via-green-300 to-indigo-300 mt-5 rounded-md p-10 min-h-[85vh] max-sm:w-full max-sm:mt-0">
+    <div className="container w-[50%] mx-auto bg-gradient-to-r from-pink-200 via-green-300 to-indigo-300 mt-5 rounded-md p-10 min-h-[90vh] max-sm:w-full max-sm:mt-0">
       <h1 className="text-3xl mb-4 text-blue-800 text-center font-bold">
         Event Details Modal
       </h1>
@@ -66,15 +66,15 @@ const Book = () => {
           placeholder="Event Name"
           value={eventName}
           onChange={handleEventNameChange}
-          className="border border-gray-400 p-2 rounded-md w-full my-3"
+          className="border border-gray-400 p-2 rounded-md w-full my-3 h-16"
         />
         <input
           type="datetime-local"
           value={dateTime}
           onChange={handleDateTimeChange}
-          className="border border-gray-400 p-2 rounded-md w-full my-3"
+          className="border border-gray-400 p-2 rounded-md w-full my-3 h-14"
         />
-        <div className="flex items-center justify-evenly my-3">
+        <div className="flex items-center justify-between bg-green-100 px-2 rounded-lg">
           <div className="flex items-center justify-center gap-3 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <RxAvatar color="red" size={24} />
@@ -84,7 +84,7 @@ const Book = () => {
             options={options}
             value={selectedVendor}
             onChange={handleVendorChange}
-            className="w-[60%] py-2"
+            className="w-[80%] py-2 border-none"
             getOptionLabel={(option) => (
               <div className="flex items-center justify-center">
                 <img
@@ -97,7 +97,7 @@ const Book = () => {
             )}
           />
         </div>
-        <div className="flex items-center justify-evenly">
+        <div className="flex items-center justify-between bg-green-100 px-2 rounded-lg mt-3">
           <div className="flex items-center justify-center gap-3 max-sm:gap-0">
             <CiStickyNote color="red" size={24} />
             <p className="text-xl max-sm:text-sm"> Note:- </p>
@@ -106,13 +106,13 @@ const Book = () => {
             placeholder="Note"
             value={note}
             onChange={handleNoteChange}
-            className="border ml-2 my-3 border-gray-400 p-2 rounded-md w-[60%] mb-2"
+            className="border ml-2 my-3 border-gray-400 p-2 rounded-md w-[80%] mb-2"
           />
         </div>
 
         <button
           onClick={handleSubmit}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md float-right mr-10 my-5 w-32"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md w-full mt-10"
         >
           Submit
         </button>
