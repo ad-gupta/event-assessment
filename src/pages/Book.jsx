@@ -88,8 +88,8 @@ const Book = () => {
           onChange={handleDateTimeChange}
           className="border pl-5 text-gray-600 border-gray-300 p-3 font-bold rounded-3xl w-full mb-4"
         />
-        <div className="flex items-center justify-between mt-2">
-          <div className="flex items-center justify-center gap-2 max-sm:gap-0">
+        <div className="flex items-center justify-between gap-2 mt-2">
+          <div className="flex items-center -mt-1 justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <RxAvatar size={20} style={{ color: "tomato" }} />
             <p className="text-lg font-semibold max-sm:text-sm italic text-gray-700">
@@ -115,7 +115,7 @@ const Book = () => {
                 <img
                   src={option.image}
                   alt={option.label}
-                  className="h-6 w-6 mr-2 rounded-lg"
+                  className="h-6 w-6 mr-2 rounded-full"
                 />
                 <p
                   style={{ textShadow: "0.5px 1px green" }}
@@ -127,8 +127,8 @@ const Book = () => {
             )}
           />
         </div>
-        <div className="flex items-center justify-between mt-2">
-          <div className="flex items-center justify-center gap-2 max-sm:gap-0">
+        <div className="flex items-center gap-2 justify-between mt-2">
+          <div className="flex items-center -mt-4 justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <CiStickyNote style={{ color: "tomato" }} size={20} />
             <p className="text-lg font-semibold max-sm:text-sm italic text-gray-700">
