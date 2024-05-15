@@ -188,7 +188,7 @@ const EventDetails = () => {
           onChange={handleDateTimeChange}
           className="border pl-5 text-gray-600 border-gray-300 p-3 font-bold rounded-3xl w-full mb-2"
         />
-        <div className="flex items-center justify-between mt-3">
+        <div className="flex gap-2 items-center justify-between mt-3">
           <div className="flex items-center justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <RxAvatar size={20} style={{ color: "tomato" }} />
@@ -208,7 +208,7 @@ const EventDetails = () => {
             }}
             options={options}
             value={selectedVendor}
-            className="w-[60%] font-semibold"
+            className="w-[75%] font-semibold"
             onChange={handleVendorChange}
             getOptionLabel={(option) => (
               <div className="flex items-center text-red p-2">
@@ -227,7 +227,7 @@ const EventDetails = () => {
             )}
           />
         </div>
-        <div className="flex items-center mt-2 justify-between">
+        <div className="flex items-center gap-2 mt-2 justify-between">
           <div className="flex items-center justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <CiStickyNote style={{ color: "tomato" }} size={20} />
@@ -240,7 +240,7 @@ const EventDetails = () => {
             placeholder="Note"
             value={note}
             onChange={handleNoteChange}
-            className="border border-gray-300 p-3 pl-5 rounded-3xl w-[70%] mb-2 resize-none"
+            className="border border-gray-300 p-3 pl-5 rounded-3xl w-[80%] mb-2 resize-none"
           />
         </div>
       </div>
@@ -289,14 +289,14 @@ const EventDetails = () => {
           <img
             src="/poster.jpeg"
             alt="User Avatar"
-            className="w-12 h-12 rounded-full gap-3 p-2"
+            className="w-12 h-12 rounded-full gap-3 p-2 -ml-3"
           />
           <div className="flex items-center justify-between w-full">
             <input
               placeholder="Write a comment..."
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
-              className="border border-gray-400 p-4 rounded-3xl w-64 mr-1 mb-2"
+              className="border border-gray-400 p-4 rounded-3xl w-full mr-1 mb-2"
             />
             <div onClick={handleCommentSubmit} className="text-rose-500 -ml-10 pb-2 pr-8 cursor-pointer">
               <LuSendHorizonal />

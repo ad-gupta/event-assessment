@@ -108,7 +108,7 @@ const Book = () => {
             }}
             options={options}
             value={selectedVendor}
-            className="w-[65%] font-semibold"
+            className="w-[75%] font-semibold"
             onChange={handleVendorChange}
             getOptionLabel={(option) => (
               <div className="flex items-center text-red p-2">
@@ -140,7 +140,7 @@ const Book = () => {
             placeholder="Note"
             value={note}
             onChange={handleNoteChange}
-            className="border border-gray-300 pt-3 p-3 pl-5 rounded-3xl w-[70%] mb-4 resize-none"
+            className="border border-gray-300 pt-3 p-3 pl-5 rounded-3xl w-[80%] mb-4 resize-none"
           />
         </div>
       </div>
