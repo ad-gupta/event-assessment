@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { RiDeleteBinLine } from "react-icons/ri";
 import Select from "react-select";
 import { RxAvatar } from "react-icons/rx";
 import { CiStickyNote } from "react-icons/ci";
@@ -163,7 +164,7 @@ const EventDetails = () => {
         </div>
         <div className="flex items-center gap-2">
           <button onClick={deleteEvent} className=" text-rose-500">
-            <FaTrash />
+            <RiDeleteBinLine size={18}/>
           </button>
           <div className=" text-rose-500 text-xl">
             <Link to="/">
@@ -173,7 +174,7 @@ const EventDetails = () => {
         </div>
       </div>
 
-      <div className="mb-4 m-5">
+      <div className="mb-4 mt-5">
         <input
           type="text"
           placeholder="Event Name"
@@ -187,11 +188,11 @@ const EventDetails = () => {
           onChange={handleDateTimeChange}
           className="border pl-5 text-gray-600 border-gray-300 p-3 font-bold rounded-3xl w-full mb-2"
         />
-        <div className="flex items-center justify-evenly">
+        <div className="flex items-center justify-between mt-3">
           <div className="flex items-center justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <RxAvatar size={20} style={{ color: "tomato" }} />
-            <p className="text-lg max-sm:text-sm italic text-gray-700">
+            <p className="text-lg font-semibold max-sm:text-sm italic text-gray-700">
               {" "}
               Assign_to:{" "}
             </p>
@@ -210,15 +211,15 @@ const EventDetails = () => {
             className="w-[60%] font-semibold"
             onChange={handleVendorChange}
             getOptionLabel={(option) => (
-              <div className="flex items-center justify-center text-red p-2">
+              <div className="flex items-center text-red p-2">
                 <img
                   src={option.image}
                   alt={option.label}
-                  className="h-6 w-6 mr-2 rounded-lg"
+                  className="h-7 w-7 mr-2 rounded-lg"
                 />
                 <p
                   style={{ textShadow: "0.5px 1px green" }}
-                  className="font-semibold mr-2 text-teal-500 text-xs"
+                  className="font-semibold mr-2 text-teal-500 text-sm"
                 >
                   {option.label}
                 </p>
@@ -226,11 +227,11 @@ const EventDetails = () => {
             )}
           />
         </div>
-        <div className="flex items-center justify-evenly">
+        <div className="flex items-center mt-2 justify-between">
           <div className="flex items-center justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <CiStickyNote style={{ color: "tomato" }} size={20} />
-            <p className="text-lg max-sm:text-sm italic text-gray-700">
+            <p className="text-lg font-semibold max-sm:text-sm italic text-gray-600">
               {" "}
               Note:{" "}
             </p>
@@ -239,7 +240,7 @@ const EventDetails = () => {
             placeholder="Note"
             value={note}
             onChange={handleNoteChange}
-            className="border border-gray-300 p-3 pl-5 rounded-3xl w-[60%] mb-2"
+            className="border border-gray-300 p-3 pl-5 rounded-3xl w-[70%] mb-2 resize-none"
           />
         </div>
       </div>
@@ -252,34 +253,35 @@ const EventDetails = () => {
         {comments.map((comment) => (
           <div
             key={comment._id}
-            className="flex items-center mb-2 my-3 rounded-md w-full gap-2 border-2 border-slate-100 p-2"
+            className="flex -ml-4 justify-between my-4 rounded-md w-full gap-2 p-2"
           >
             <img
               src="/poster.jpeg"
               alt="User Avatar"
-              className="w-11 h-11 rounded-full mr-2 gap-3 p-2"
+              className="w-11 h-11 rounded-full gap-3 p-2"
             />
             <div className="flex-grow">
               <div className="flex items-center justify-between">
                 <span
                   style={{ textShadow: "1px 1px green" }}
-                  className="font-semibold mr-2 text-teal-500"
+                  className="font-semibold text-teal-500"
                 >
                   {comment.name}
                 </span>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <button
+
                     onClick={() => handleEditComment(comment._id)}
-                    className="mr-2 text-slate-400"
+                    className=" text-slate-400 mb-[-7vh]"
                   >
                     <FaEdit />
                   </button>
-                  <button onClick={() => handleDeleteComment(comment._id)}>
-                    <FaTrash color="tomato" />
+                  <button className="mb-[-7vh] mr-[-7px]" onClick={() => handleDeleteComment(comment._id)}>
+                    <RiDeleteBinLine size={18} color="tomato" />
                   </button>
                 </div>
               </div>
-              <p className="text-gray-600">{comment.comment}</p>
+              <p className="text-gray-600 w-[95%]">{comment.comment}</p>
             </div>
           </div>
         ))}
@@ -287,16 +289,16 @@ const EventDetails = () => {
           <img
             src="/poster.jpeg"
             alt="User Avatar"
-            className="w-11 h-11 rounded-full mr-2 gap-3 p-2"
+            className="w-12 h-12 rounded-full gap-3 p-2"
           />
-          <div className="flex items-center justify-center w-full">
+          <div className="flex items-center justify-between w-full">
             <input
               placeholder="Write a comment..."
               value={commentText}
               onChange={(e) => setCommentText(e.target.value)}
-              className="border border-gray-400 p-4 rounded-3xl w-full mb-2"
+              className="border border-gray-400 p-4 rounded-3xl w-64 mr-1 mb-2"
             />
-            <div onClick={handleCommentSubmit} className="text-rose-500 ml-[-4vh] pb-2 pr-8 cursor-pointer">
+            <div onClick={handleCommentSubmit} className="text-rose-500 -ml-10 pb-2 pr-8 cursor-pointer">
               <LuSendHorizonal />
             </div>
           </div>

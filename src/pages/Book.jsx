@@ -74,13 +74,13 @@ const Book = () => {
           </Link>
         </div>
       </div>
-      <div className="mb-4 m-5 mt-10">
+      <div className="mt-10">
         <input
           type="text"
           placeholder="Event Name"
           value={eventName}
           onChange={handleEventNameChange}
-          className="border pl-5 border-gray-300 p-3 rounded-3xl w-full mb-4 text-rose-600 font-bold text-xl"
+          className="border pl-5 h-16 border-gray-300 p-3 rounded-3xl w-full mb-2 text-rose-600 font-bold text-xl"
         />
         <input
           type="datetime-local"
@@ -88,11 +88,11 @@ const Book = () => {
           onChange={handleDateTimeChange}
           className="border pl-5 text-gray-600 border-gray-300 p-3 font-bold rounded-3xl w-full mb-4"
         />
-        <div className="flex items-center justify-evenly">
+        <div className="flex items-center justify-between mt-2">
           <div className="flex items-center justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <RxAvatar size={20} style={{ color: "tomato" }} />
-            <p className="text-lg max-sm:text-sm italic text-gray-700">
+            <p className="text-lg font-semibold max-sm:text-sm italic text-gray-700">
               {" "}
               Assign_to:{" "}
             </p>
@@ -103,15 +103,15 @@ const Book = () => {
                 ...baseStyles,
                 borderRadius: "40px",
                 marginBottom: "10px",
-                padding: "5px",
+                padding: "7px"
               }),
             }}
             options={options}
             value={selectedVendor}
-            className="w-[60%] font-semibold"
+            className="w-[65%] font-semibold"
             onChange={handleVendorChange}
             getOptionLabel={(option) => (
-              <div className="flex items-center justify-center text-red p-2">
+              <div className="flex items-center text-red p-2">
                 <img
                   src={option.image}
                   alt={option.label}
@@ -127,11 +127,11 @@ const Book = () => {
             )}
           />
         </div>
-        <div className="flex items-center justify-evenly">
+        <div className="flex items-center justify-between mt-2">
           <div className="flex items-center justify-center gap-2 max-sm:gap-0">
             {/* Replace RxAvatar with your actual avatar component */}
             <CiStickyNote style={{ color: "tomato" }} size={20} />
-            <p className="text-lg max-sm:text-sm italic text-gray-700">
+            <p className="text-lg font-semibold max-sm:text-sm italic text-gray-700">
               {" "}
               Note:{" "}
             </p>
@@ -140,13 +140,13 @@ const Book = () => {
             placeholder="Note"
             value={note}
             onChange={handleNoteChange}
-            className="border border-gray-300 pt-3 p-3 pl-5 rounded-3xl w-[60%] mb-4"
+            className="border border-gray-300 pt-3 p-3 pl-5 rounded-3xl w-[70%] mb-4 resize-none"
           />
         </div>
       </div>
       <button
           onClick={handleSubmit}
-          className="bg-rose-400 text-white py-2 px-4 rounded-3xl text-lg font-sans w-full mt-10"
+          className="bg-rose-400 h-14 w-full text-white rounded-3xl text-xl font-sans mt-10"
         >
           Submit
         </button>
